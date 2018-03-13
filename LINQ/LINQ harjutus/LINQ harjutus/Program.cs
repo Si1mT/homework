@@ -48,10 +48,31 @@ namespace LINQ_harjutus
             //esimeneInimene.Vanus = 17;
 
             List<Inimene> MinuInimesedListis2 = new List<Inimene> { new Inimene { Nimi = "Siim", Vanus = 17 } };
+            //lisan uue objekti inimeste listi
+            MinuInimesedListis2.Add(new Inimene { Nimi = "virko", Vanus = 16 });
+            MinuInimesedListis2.Add(new Inimene { Nimi = "dab", Vanus = 2 });
+            MinuInimesedListis2.Add(new Inimene { Nimi = "dab", Vanus = 5});
 
+
+            //loen läbi MinuInimesedListis2
             foreach (Inimene inimene in MinuInimesedListis2)
             {
                 //Console.WriteLine("inimese nimi on: "+inimene.Nimi+" ja vanus on "+inimene.Vanus);
+                Console.WriteLine("inimese nimi on {0} ja vanus on {1}",inimene.Nimi,inimene.Vanus);
+            }
+            Console.WriteLine();
+
+            //var inimesedKelleVanusOnKaks = MinuInimesedListis2.Where(x => x.Vanus == 2);
+            var inimesedKelleVanusOnKaks = from inimene in MinuInimesedListis2
+                                           orderby inimene.Vanus
+                                           where inimene.Nimi.Contains("i")
+                                           select inimene;
+
+            var mituInimest = MinuInimesedListis2.Count();
+            var mituErinevat = MinuInimesedListis2.Distinct(x=>);
+            Console.WriteLine("listis on {0} inimest",mituErinevat);
+            foreach (Inimene inimene in inimesedKelleVanusOnKaks)
+            {
                 Console.WriteLine("inimese nimi on {0} ja vanus on {1}",inimene.Nimi,inimene.Vanus);
             }
 
