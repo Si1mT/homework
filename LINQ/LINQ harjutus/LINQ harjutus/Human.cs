@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LINQ_harjutus
 {
-    class Inimene
+    class Human
     {
-        public string Nimi;
-        public int Vanus;
+        public string Name;
+        public int Age;
     }
 }
