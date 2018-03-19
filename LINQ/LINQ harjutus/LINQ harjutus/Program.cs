@@ -141,6 +141,8 @@ namespace LINQ_harjutus
             #endregion
 
             #region Harjutus
+            
+            //eesnimede loetelu
             var humans1 = new List<Human>
             {
                 new Human(){Name="Siim",Age=17},
@@ -150,13 +152,16 @@ namespace LINQ_harjutus
                 new Human(){Name="Miisu",Age=20},
                 new Human(){Name="Bom",Age=13},
                 new Human(){Name="Barel",Age=12},
+                new Human(){Name="Tom",Age=20},
+                new Human(){Name="Ats",Age=15},
+                new Human(){Name="Ash",Age=30},
             };
 
             //grupeerin nimed pikkuse järgi
             var groups1 = from human in humans1
                          group human by human.Name.Length;
 
-             //kirjutan välja,mitu nime on grupis ja need nimed              
+             //kirjutan välja need nimed ja mitu nime on grupis             
             foreach (var group in groups1)
             {
                 Console.WriteLine();
@@ -165,14 +170,6 @@ namespace LINQ_harjutus
                 foreach (var item in group)
                 {
                     Console.WriteLine(item.Name+" "+item.Age);
-                }
-            }
-
-            foreach (var group in groups1)
-            {
-                foreach (var item in group)
-                {
-
                 }
             }
 
